@@ -472,7 +472,7 @@ ul{padding-left:20px}li{margin:4px 0}
  <polygon points="268,330 422,337 455,387 240,387" fill="none" stroke="#ff7043" stroke-width="4" stroke-dasharray="10 7"/>
 </g>
 </svg>
- <p style="font-size:14px;color:#6b7280;margin-top:6px">Así ve Martín su pieza parado en la puerta: la cama a la izquierda, la cómoda a la derecha, la ventana detrás de la cama y la alfombra delante.</p>
+ <p style="font-size:14px;color:#6b7280;margin-top:6px">Así ve Martín su pieza parado en la puerta: la cama a la izquierda, la ventana al frente, el mueble de juguetes a la derecha y la puerta detrás de él.</p>
  <div id="popts"></div>
 </section>
 <section class="panel" id="discurso">
@@ -491,11 +491,11 @@ ul{padding-left:20px}li{margin:4px 0}
 
 <h3>✅ Checklist según la pauta (25 pts)</h3>
 <label class="chk"><input type="checkbox" id="c1" data-p="4"><span><b>Cartulina</b>: dibujos/recortes de todos los espacios + foto de Martín en la entrada.</span><span class="p">4 pts</span></label>
-<label class="chk"><input type="checkbox" id="c2" data-p="4"><span><b>Espacios</b>: dice “Here there is…” (uno) y “Here there are…” (varios) sin leer. → Bloque 2 del discurso. El <b>bloque 3</b> conecta su foto con <i>right / left</i> (refuerza la ubicación espacial que pide el objetivo).</span><span class="p">4 pts</span></label>
-<label class="chk"><input type="checkbox" id="c3" data-p="4"><span><b>Vocabulario de la pieza</b>: “In my bedroom, there is a bed, a window…” → Bloque 4.</span><span class="p">4 pts</span></label>
-<label class="chk"><input type="checkbox" id="c4" data-p="6"><span><b>Posiciones</b>: al menos 3 objetos (preparamos 4: left, right, behind, in front of). → Bloque 5 y pestaña “Mi pieza”.</span><span class="p">6 pts</span></label>
+<label class="chk"><input type="checkbox" id="c2" data-p="4"><span><b>Espacios</b>: dice “Here there is…” (uno) y “Here there are…” (varios) sin leer. → Bloque 2 del discurso.</span><span class="p">4 pts</span></label>
+<label class="chk"><input type="checkbox" id="c3" data-p="4"><span><b>Vocabulario de la pieza</b>: “In my bedroom, there is a bed, a window, a door, a toy box and a carpet.” → Bloque 3.</span><span class="p">4 pts</span></label>
+<label class="chk"><input type="checkbox" id="c4" data-p="6"><span><b>Posiciones</b>: al menos 3 objetos: <i>on the left, behind me, in front of me</i>. → Bloque 4 y pestaña “Mi pieza”.</span><span class="p">6 pts</span></label>
 <label class="chk"><input type="checkbox" id="c5" data-p="4"><span><b>Pronunciación y volumen</b>: habla fuerte, despacio y mirando al curso.</span><span class="p">4 pts</span></label>
-<label class="chk"><input type="checkbox" id="c6" data-p="3"><span><b>Interacción</b>: responde “What do you do in…?” con una acción. → Bloque 7 y pestaña “Mi casa”.</span><span class="p">3 pts</span></label>
+<label class="chk"><input type="checkbox" id="c6" data-p="3"><span><b>Interacción</b>: responde “What do you do in…?” con una acción. → Bloque “Solo si la profe pregunta” y tabla de abajo.</span><span class="p">3 pts</span></label>
 <div class="tot">Listo: <span id="pts">0</span> / 25</div>
 
 <h3>🗣️ Preguntas probables de la profesora</h3>
@@ -530,7 +530,7 @@ ul{padding-left:20px}li{margin:4px 0}
 <tr><td>5</td><td>Ensayo general con la cartulina, de pie, en modo “🖼️ Solo dibujitos”. Papá hace de profesora y pregunta “What do you do in…?”.</td></tr></table>
 
 <h3>🃏 Tarjeta de dibujitos (recordatorio pequeño)</h3>
-<div class="tip" style="font-size:28px;line-height:1.8">👋 Martín 🏢 → ☝️ 🛋️ 🍽️ 🍳 🧸 → ✌️ 🛏️×3 🛁×3 🌿×2 → 🙋‍♂️🚪 ➡️🛋️🍽️ ⬆️🍳 ⬅️🛏️🛁 → 🛏️ 🪟 🚪 💡 🟦 🗄️ 🧸 → ⬅️🛏️ ➡️🗄️ 🔙🪟 ⬇️🟦 → 🐱🛋️ 🐶🛏️ → 🙏</div>
+<div class="tip" style="font-size:28px;line-height:1.8">👋 Martín 🏢 → ✌️🍽️🛋️ ☝️🍳 ✌️🛁×3 🛏️×3 ☝️🧸 → 🛏️ 🪟 🚪 🧸📦 🟦 → ⬅️🛏️ 🔙🚪 ⬆️🪟 → 🙏</div>
 <p style="font-size:14px;color:#6b7280">Viene también en la página 2 del PDF imprimible, junto al plano.</p>
 </section>
 </main>
@@ -553,55 +553,46 @@ const ROOMS = {
 };
 
 const OBJS = {
-  bed:{en:"bed",es:"cama",ph:"bed",pos:"On the left, there is a bed.",posKey:"left",em:"🛏️"},
-  dresser:{en:"dresser",es:"cómoda",ph:"dré-ser",pos:"On the right, there is a dresser.",posKey:"right",em:"🗄️"},
-  window:{en:"window",es:"ventana",ph:"uín-dou",pos:"Behind the bed, there is a window.",posKey:"behind",em:"🪟"},
-  carpet:{en:"carpet",es:"alfombra",ph:"cár-pet",pos:"In front of the bed, there is a carpet.",posKey:"front",em:"🟦"},
+  bed:{en:"bed",es:"cama",ph:"bed",pos:"On the left, there is the bed.",posKey:"left",em:"🛏️"},
+  dresser:{en:"toy box",es:"mueble de juguetes",ph:"tói box",pos:"On the right, there is the toy box.",posKey:"right",em:"🧸"},
+  window:{en:"window",es:"ventana",ph:"uín-dou",pos:"In front of me, there is the window.",posKey:"front",em:"🪟"},
+  carpet:{en:"carpet",es:"alfombra",ph:"cár-pet",pos:"On the floor, there is a carpet.",posKey:"floor",em:"🟦"},
   lamp:{en:"lamp",es:"lámpara",ph:"lamp",pos:"On the nightstand, there is a lamp.",posKey:"next",em:"💡"},
   nightstand:{en:"nightstand",es:"velador",ph:"náit-stand",pos:"Next to the bed, there is a nightstand.",posKey:"next",em:"🪵"},
   backpack:{en:"backpack",es:"mochila",ph:"bák-pak",pos:"Next to the nightstand, there is a backpack.",posKey:"next",em:"🎒"},
-  toys:{en:"toys",es:"juguetes",ph:"tóis",pos:"On the dresser, there are lots of toys.",posKey:"right",em:"🧸"}
+  toys:{en:"toys",es:"juguetes",ph:"tóis",pos:"On the toy box, there are lots of toys.",posKey:"right",em:"🧸"}
 };
 
-const POS_LABEL = {left:"On the left ⬅️",right:"On the right ➡️",behind:"Behind the bed 🔙",front:"In front of the bed ⬇️",next:"Next to the bed ↔️"};
+const POS_LABEL = {left:"On the left ⬅️",right:"On the right ➡️",behind:"Behind me 🔙",front:"In front of me ⬆️",next:"Next to the bed ↔️"};
 
 // Guion: [palabra|emoji] = palabra clave
 const SCRIPT = [
   {t:"Saludo", em:"👋", lines:[
     {en:"Hello! My name is [Martín|🙋‍♂️]. I live in an [apartment|🏢].", ph:"jeló! mai néim is Martín. ai liv in an a-párt-ment."}]},
-  {t:"Los espacios", em:"🏠", lines:[
-    {en:"Here there is a [living room|🛋️], a [dining room|🍽️], a [kitchen|🍳] and a [family room|🧸].", ph:"jir der is a lí-ving rum, a dái-ning rum, a kí-chen and a fá-mi-li rum."},
-    {en:"Here there are [three bedrooms|🛏️🛏️🛏️], [three bathrooms|🛁🛁🛁] and [two terraces|🌿🌿].", ph:"jir der ar zrí béd-rums, zrí báz-rums and tu té-ra-ses."}]},
-  {t:"Mi foto: derecha e izquierda", em:"🙋‍♂️", lines:[
-    {en:"[This is me!|👆🙋‍♂️] I am at the [front door|🚪].", ph:"dis is mi! ai am at de frónt dor."},
-    {en:"[On the right|➡️], there are the [living room|🛋️] and the [dining room|🍽️].", ph:"on de ráit, der ar de lí-ving rum and de dái-ning rum."},
-    {en:"[In front of me|⬆️], there is the [kitchen|🍳].", ph:"in frónt of mi, der is de kí-chen."},
-    {en:"[On the left|⬅️], there are the [bedrooms|🛏️] and the [bathrooms|🛁].", ph:"on de left, der ar de béd-rums and de báz-rums."},
-    {en:"And this is [my bedroom|🛏️]!", ph:"and dis is mai béd-rum!"}]},
+  {t:"Los espacios (apunta cada uno al decir Here)", em:"🏠", lines:[
+    {en:"Here there are a [dining room|🍽️] and a [living room|🛋️].", ph:"jir der ar a dái-ning rum and a lí-ving rum."},
+    {en:"Here there is a [kitchen|🍳].", ph:"jir der is a kí-chen."},
+    {en:"Here there are [three bathrooms|🛁🛁🛁] and [three bedrooms|🛏️🛏️🛏️].", ph:"jir der ar zrí báz-rums and zrí béd-rums."},
+    {en:"Here there is a [family room|🧸].", ph:"jir der is a fá-mi-li rum."}]},
   {t:"Mi pieza", em:"🛏️", lines:[
-    {en:"In my bedroom, there is a [bed|🛏️], a [window|🪟], a [door|🚪], a [lamp|💡], a [carpet|🟦] and a [dresser|🗄️].", ph:"in mai béd-rum, der is a bed, a uín-dou, a dor, a lamp, a cár-pet and a dré-ser."},
-    {en:"There are lots of [toys|🧸]!", ph:"der ar lots of tóis!"}]},
-  {t:"¿Dónde están?", em:"📍", lines:[
-    {en:"I am at my [bedroom door|🚪].", ph:"ai am at mai béd-rum dor."},
-    {en:"[On the left|⬅️], there is a [bed|🛏️].", ph:"on de left, der is a bed."},
-    {en:"[On the right|➡️], there is a [dresser|🗄️].", ph:"on de ráit, der is a dré-ser."},
-    {en:"[Behind|🔙] the bed, there is a [window|🪟].", ph:"bi-jáind de bed, der is a uín-dou."},
-    {en:"[In front of|⬇️] the bed, there is a [carpet|🟦].", ph:"in frónt of de bed, der is a cár-pet."}]},
-  {t:"Mis mascotas", em:"🐱🐶", lines:[
-    {en:"I have a [cat|🐱] and a [dog|🐶].", ph:"ai jav a kat and a dog."},
-    {en:"The cat is [sleeping|😴] on the [sofa|🛋️]. The dog is sleeping on my [dad's bed|🛏️].", ph:"de kat is slí-ping on de sóu-fa. de dog is slí-ping on mai dads bed."}]},
-  {t:"Lo que hago (si la profe pregunta)", em:"🙋", lines:[
-    {en:"In my bedroom, I [sleep|😴]. In the bathroom, I [brush my teeth|🪥].", ph:"in mai béd-rum, ai slíip. in de báz-rum, ai brash mai tiz."},
-    {en:"In the family room, I [play|⚽]. In the dining room, I [eat|🥪].", ph:"in de fá-mi-li rum, ai plei. in de dái-ning rum, ai iit."}]},
+    {en:"This is [my bedroom|🛏️].", ph:"dis is mai béd-rum."},
+    {en:"In my bedroom, there is a [bed|🛏️], a [window|🪟], a [door|🚪], a [toy box|🧸] and a [carpet|🟦].", ph:"in mai béd-rum, der is a bed, a uín-dou, a dor, a tói box and a cár-pet."}]},
+  {t:"¿Dónde están? (parado en la puerta)", em:"📍", lines:[
+    {en:"[On the left|⬅️], there is the [bed|🛏️].", ph:"on de left, der is de bed."},
+    {en:"[Behind me|🔙], there is the [door|🚪].", ph:"bi-jáind mi, der is de dor."},
+    {en:"[In front of me|⬆️], there is the [window|🪟].", ph:"in frónt of mi, der is de uín-dou."}]},
   {t:"Despedida", em:"🙏", lines:[
     {en:"[Thank you|🙏]!", ph:"zénk iu!"}]}
 ];
+const ASK = {t:"Solo si la profe pregunta (no es parte del discurso)", em:"🙋", lines:[
+    {en:"In my bedroom, I [sleep|😴] and I [play|⚽].", ph:"in mai béd-rum, ai slíip and ai plei."},
+    {en:"In the bathroom, I [brush my teeth|🪥]. In the kitchen, I [eat|🥪].", ph:"in de báz-rum, ai brash mai tiz. in de kí-chen, ai iit."}]};
 const EXTRA = {en:"This is me! I am at the front door. [On the right|➡️], there are the living room and the dining room. [In front of me|⬆️], there is the kitchen. [On the left|⬅️], there are the bedrooms and the bathrooms.", ph:"dis is mi! ai am at de frónt dor. on de ráit, der ar de lí-ving rum and de dái-ning rum. in frónt of mi, der is de kí-chen. on de left, der ar de béd-rums and de báz-rums."};
 
 const VOCAB = {
   "🏠 Espacios":[["apartment","departamento","a-párt-ment","🏢"],["living room","living","lí-ving rum","🛋️"],["dining room","comedor","dái-ning rum","🍽️"],["kitchen","cocina","kí-chen","🍳"],["family room","sala de estar","fá-mi-li rum","🧸"],["bedroom","dormitorio / pieza","béd-rum","🛏️"],["bathroom","baño","báz-rum","🛁"],["terrace","terraza","té-ras","🌿"],["hall","pasillo","jol","🚶"]],
-  "🛏️ Mi pieza":[["bed","cama","bed","🛏️"],["window","ventana","uín-dou","🪟"],["door","puerta","dor","🚪"],["lamp","lámpara","lamp","💡"],["carpet","alfombra","cár-pet","🟦"],["dresser","cómoda","dré-ser","🗄️"],["toys","juguetes","tóis","🧸"],["backpack","mochila","bák-pak","🎒"]],
-  "📍 Posiciones":[["on the right","a la derecha","on de ráit","➡️"],["on the left","a la izquierda","on de left","⬅️"],["in front of","delante de","in frónt of","⬇️"],["behind","detrás de","bi-jáind","🔙"],["next to","al lado de","nékst tu","↔️"]],
+  "🛏️ Mi pieza":[["bed","cama","bed","🛏️"],["window","ventana","uín-dou","🪟"],["door","puerta","dor","🚪"],["lamp","lámpara","lamp","💡"],["carpet","alfombra","cár-pet","🟦"],["toy box","mueble de juguetes","tói box","🧸"],["toys","juguetes","tóis","🪀"],["backpack","mochila","bák-pak","🎒"]],
+  "📍 Posiciones":[["on the right","a la derecha","on de ráit","➡️"],["on the left","a la izquierda","on de left","⬅️"],["in front of me","delante de mí","in frónt of mi","⬆️"],["behind me","detrás de mí","bi-jáind mi","🔙"],["next to","al lado de","nékst tu","↔️"]],
   "🏃 Acciones":[["I sleep","duermo","ai slíip","😴"],["I eat","como","ai iit","🥪"],["I play","juego","ai plei","⚽"],["I brush my teeth","me lavo los dientes","ai brash mai tiz","🪥"],["I take a bath","me baño","ai téik a baz","🛁"],["I watch TV","veo tele","ai uátch ti-ví","📺"],["I read","leo","ai riid","📖"]],
   "🐾 Extras":[["there is","hay (uno)","der is","☝️"],["there are","hay (varios)","der ar","✌️"],["cat","gato","kat","🐱"],["dog","perro","dog","🐶"],["sofa","sofá","sóu-fa","🛋️"],["thank you","gracias","zénk iu","🙏"]]
 };
@@ -612,16 +603,16 @@ const QUIZ = [
   {q:"Here there ___ a kitchen.", opts:["is","are"], a:0, ex:"Es <b>una</b> cocina → <b>is</b> ☝️"},
   {q:"🔊 Escucha y elige:", say:"bathroom", opts:["🛋️","🛁","🍽️","🌿"], a:1, ex:"<b>Bathroom</b> = baño 🛁 (ojo: no es bedroom 🛏️)"},
   {q:"¿Dónde está la cama en tu pieza?", img:true, opts:["On the left ⬅️","On the right ➡️","In the kitchen 🍳"], a:0, ex:"<b>On the left, there is a bed.</b>"},
-  {q:"Behind the bed, there is a…", opts:["carpet 🟦","window 🪟","dog 🐶"], a:1, ex:"Detrás de la cama está la <b>window</b> 🪟"},
-  {q:"In front of the bed, there is a…", opts:["carpet 🟦","kitchen 🍳","lamp 💡"], a:0, ex:"Delante de la cama está la <b>carpet</b> 🟦"},
+  {q:"Martín está en la puerta de su pieza. Behind me, there is the…", opts:["door 🚪","window 🪟","bed 🛏️"], a:0, ex:"Detrás de él está la <b>door</b> 🚪 (por ahí entró)"},
+  {q:"In front of me, there is the…", opts:["window 🪟","kitchen 🍳","door 🚪"], a:0, ex:"Al frente está la <b>window</b> 🪟"},
   {q:"¿Cómo se dice «comedor»?", opts:["living room","dining room","bedroom"], a:1, ex:"Comedor = <b>dining room</b> 🍽️"},
   {q:"What do you do in the bathroom?", opts:["I brush my teeth 🪥","I watch TV 📺","I sleep 😴"], a:0, ex:"<b>I brush my teeth</b> = me lavo los dientes"},
   {q:"What do you do in your bedroom?", opts:["I eat 🥪","I sleep 😴","I take a bath 🛁"], a:1, ex:"<b>I sleep</b> = duermo 😴"},
-  {q:"Where is the cat sleeping?", opts:["On the sofa 🛋️","In the kitchen 🍳","By the window 🪟"], a:0, ex:"<b>The cat is sleeping on the sofa.</b> 🐱"},
+  {q:"Here there ___ a family room.", opts:["is","are"], a:0, ex:"Es <b>una</b> sala → <b>is</b> ☝️"},
   {q:"¿«A la derecha» en inglés?", opts:["on the left","on the right","behind"], a:1, ex:"<b>On the right</b> ➡️. Truco: la mano con que escribes (si es la derecha) = right ✍️"},
-  {q:"Martín está en la puerta. On the right, there are…", opts:["the bedrooms 🛏️","the living room and the dining room 🛋️🍽️","the kitchen 🍳"], a:1, ex:"A su <b>derecha</b> están el living y el comedor ➡️"},
+  {q:"In my bedroom, there is a bed, a window, a door, a ___ box and a carpet.", opts:["toy","toys","toy's"], a:0, ex:"Se dice <b>toy box</b>, sin apóstrofo ni s 🧸"},
   {q:"How many bathrooms?", opts:["two","three","one"], a:1, ex:"<b>Three bathrooms</b> 🛁🛁🛁"},
-  {q:"🔊 Escucha y elige:", say:"dresser", opts:["🗄️","🎒","💡","🚪"], a:0, ex:"<b>Dresser</b> = cómoda 🗄️ (donde están los peluches)"}
+  {q:"🔊 Escucha y elige:", say:"door", opts:["🚪","🎒","💡","🛏️"], a:0, ex:"<b>Door</b> = puerta 🚪"}
 ];
 
 // ===== Voz =====
@@ -663,11 +654,11 @@ $$("#plano [data-room]").forEach(g=>g.addEventListener("click",()=>{ if(!findTar
 let piezaMode="explora", pRound=null, pScore=0;
 function setPMode(m){ piezaMode=m; $$(".pm").forEach(b=>b.classList.toggle("on",b.dataset.m===m)); $("#pq").innerHTML=""; $("#popts").innerHTML=""; if(m==="explora") $("#pq").innerHTML="👆 Toca un objeto: escuchas <b>solo la palabra</b>. Con 💬 escuchas la frase completa."; else nextP(); }
 $$(".pm").forEach(b=>b.onclick=()=>setPMode(b.dataset.m));
-const P_ASK=["bed","dresser","window","carpet"];
+const P_ASK=["bed","window","dresser"];
 function nextP(){ $("#popts").innerHTML="";
-  if(piezaMode==="donde"){ const k=P_ASK[Math.floor(Math.random()*4)]; pRound=k; const o=OBJS[k]; const q=k==="window"||k==="carpet"?`Where is the ${o.en}?`:`Where is the ${o.en}?`; $("#pq").innerHTML=`${o.em} ${q} <button class="spk sm" onclick="say('${q}')">🔊</button>`; say(q);
+  if(piezaMode==="donde"){ const k=P_ASK[Math.floor(Math.random()*P_ASK.length)]; pRound=k; const o=OBJS[k]; const q=k==="window"||k==="carpet"?`Where is the ${o.en}?`:`Where is the ${o.en}?`; $("#pq").innerHTML=`${o.em} ${q} <button class="spk sm" onclick="say('${q}')">🔊</button>`; say(q);
     ["left","right","behind","front"].forEach(p=>{ const b=document.createElement("button"); b.className="opt"; b.textContent=POS_LABEL[p]; b.onclick=()=>{ if(p===o.posKey){ b.classList.add("ok"); pScore++; toast("⭐ "+o.pos); say(o.pos); confetti(); setTimeout(nextP,2300);} else { b.classList.add("no"); toast("¡Casi! Mira el dibujo otra vez 👀"); } }; $("#popts").appendChild(b); });
-  } else if(piezaMode==="toca"){ const k=P_ASK[Math.floor(Math.random()*4)]; pRound=k; const o=OBJS[k]; const prompt=o.pos.split(",")[0]+", there is a…"; $("#pq").innerHTML=`👆 Tap: <b>${prompt}</b> <button class="spk sm" onclick="say('${prompt}')">🔊</button>`; say(prompt); }
+  } else if(piezaMode==="toca"){ const k=P_ASK[Math.floor(Math.random()*P_ASK.length)]; pRound=k; const o=OBJS[k]; const prompt=o.pos.split(",")[0]+", there is a…"; $("#pq").innerHTML=`👆 Tap: <b>${prompt}</b> <button class="spk sm" onclick="say('${prompt}')">🔊</button>`; say(prompt); }
 }
 $$("#pieza [data-obj]").forEach(g=>{ g.style.cursor="pointer"; g.addEventListener("click",()=>{ const k=g.dataset.obj, o=OBJS[k]; $$("#pieza [data-obj]").forEach(x=>x.classList.toggle("hl",x===g));
   if(piezaMode==="toca"&&pRound){ const target=OBJS[pRound]; if(k===pRound){ toast("⭐ ¡Sí! "+target.pos); say(target.pos); confetti(); pScore++; pRound=null; setTimeout(nextP,2400);} else { toast("Ese es: <b>"+o.en+"</b>. ¡Prueba otra vez!"); say(o.en);} return; }
@@ -682,8 +673,9 @@ function renderScript(){ const box=$("#script"); box.innerHTML="";
   SCRIPT.forEach((b,i)=>{ const d=document.createElement("div"); d.className="blk"; let h=`<div class="bh"><span class="bn">${i+1}</span>${b.em} ${b.t}<button class="spk" data-b="${i}">🔊</button></div>`;
     b.lines.forEach(l=>{ const txt= level===0?hl(l.en): level===1?hide(l.en): emojisOnly(l.en); h+=`<div class="ln"><p class="en">${txt}</p>${$("#phon").checked&&level<2?`<p class="ph">🗣️ ${l.ph}</p>`:""}</div>`; });
     d.innerHTML=h; box.appendChild(d); });
+  const q=document.createElement("div"); q.className="blk extra"; q.innerHTML=`<div class="bh"><span class="bn">${ASK.em}</span>${ASK.t}<button class="spk" id="asksay">🔊</button></div>`+ASK.lines.map(l=>`<div class="ln"><p class="en">${level===0?hl(l.en):level===1?hide(l.en):emojisOnly(l.en)}</p>${$("#phon").checked&&level<2?`<p class="ph">🗣️ ${l.ph}</p>`:""}</div>`).join(""); box.appendChild(q); $("#asksay").onclick=()=>say(ASK.lines.map(l=>plain(l.en)).join(" "));
   renderFull();
-  $$("#script .blk:not(.full) .spk").forEach(b=>b.onclick=()=>{ say(SCRIPT[b.dataset.b].lines.map(l=>plain(l.en)).join(" ")); });
+  $$("#script .blk:not(.full):not(.extra) .spk").forEach(b=>b.onclick=()=>{ say(SCRIPT[b.dataset.b].lines.map(l=>plain(l.en)).join(" ")); });
 }
 $$(".lv").forEach(b=>b.onclick=()=>{ level=+b.dataset.l; $$(".lv").forEach(x=>x.classList.toggle("on",x===b)); renderScript(); });
 $("#phon").onchange=renderScript;
@@ -695,15 +687,12 @@ $("#stopall").onclick=()=>{ try{speechSynthesis.cancel()}catch(e){} };
 // Guion corrido, tal cual lo dice (bloque extra)
 const FULL = [
  {cue:"De pie, mirando al curso, con la cartulina al lado.", en:"Hello! My name is Martín. I live in an apartment."},
- {cue:"Apunta los espacios en la cartulina.", en:"Here there is a living room, a dining room, a kitchen and a family room. Here there are three bedrooms, three bathrooms and two terraces."},
- {cue:"Apunta su foto en la entrada. Levanta la mano del lado que nombra.", en:"This is me! I am at the front door. On the right, there are the living room and the dining room. In front of me, there is the kitchen. On the left, there are the bedrooms and the bathrooms."},
- {cue:"Apunta su pieza.", en:"And this is my bedroom! In my bedroom, there is a bed, a window, a door, a lamp, a carpet and a dresser. There are lots of toys!"},
- {cue:"Mano izquierda, mano derecha, apunta atrás y adelante.", en:"I am at my bedroom door. On the left, there is a bed. On the right, there is a dresser. Behind the bed, there is a window. In front of the bed, there is a carpet."},
- {cue:"Apunta el gato en el sofá y el perro en la cama.", en:"I have a cat and a dog. The cat is sleeping on the sofa. The dog is sleeping on my dad's bed."},
- {cue:"Suma puntos aunque la profe no pregunte.", en:"In my bedroom, I sleep. In the bathroom, I brush my teeth. In the family room, I play. In the dining room, I eat."},
- {cue:"Sonrisa y pequeña reverencia.", en:"Thank you!"}
+ {cue:"Apunta cada espacio en la cartulina al decir Here.", en:"Here there are a dining room and a living room. Here there is a kitchen. Here there are three bathrooms and three bedrooms. Here there is a family room."},
+ {cue:"Apunta su pieza.", en:"This is my bedroom. In my bedroom, there is a bed, a window, a door, a toy box and a carpet."},
+ {cue:"Mano izquierda, pulgar hacia atrás, apunta adelante.", en:"On the left, there is the bed. Behind me, there is the door. In front of me, there is the window."},
+ {cue:"Sonrisa.", en:"Thank you!"}
 ];
-function renderFull(){ const d=document.createElement("div"); d.className="blk full"; d.innerHTML=`<div class="bh"><span class="bn">📜</span>Extra: el guion completo, tal cual lo dice (≈ 1 min 15 s)<button class="spk" id="fullsay">🔊</button></div>`+FULL.map(f=>`<p class="cuep">🎬 ${f.cue}</p><p class="enf">${f.en}</p>`).join(""); $("#script").appendChild(d); $("#fullsay").onclick=()=>say(FULL.map(f=>f.en).join(" ")); }
+function renderFull(){ const d=document.createElement("div"); d.className="blk full"; d.innerHTML=`<div class="bh"><span class="bn">📜</span>Extra: el guion completo, tal cual lo dice (≈ 45 s)<button class="spk" id="fullsay">🔊</button></div>`+FULL.map(f=>`<p class="cuep">🎬 ${f.cue}</p><p class="enf">${f.en}</p>`).join(""); $("#script").appendChild(d); $("#fullsay").onclick=()=>say(FULL.map(f=>f.en).join(" ")); }
 
 // ===== Palabras =====
 function renderVocab(){ const box=$("#vocab"); box.innerHTML=""; Object.entries(VOCAB).forEach(([cat,list])=>{ const h=document.createElement("h3"); h.textContent=cat; box.appendChild(h); const g=document.createElement("div"); g.className="cards"; list.forEach(([en,es,ph,em])=>{ const c=document.createElement("button"); c.className="card"; c.innerHTML=`<div class="front"><div class="cem">${em}</div><div class="cen">${en}</div></div><div class="back"><div class="ces">${es}</div><div class="cph">🗣️ ${ph}</div></div>`; c.onclick=()=>{ c.classList.toggle("flip"); say(en); }; g.appendChild(c); }); box.appendChild(g); }); }
